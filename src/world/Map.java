@@ -17,41 +17,47 @@ public class Map {
         try (BufferedReader br = new BufferedReader(new FileReader("map.csv"))) {
             while((line = br.readLine()) != null) {
                 String[] lines = line.split("/");
+
                 String name = lines[0];
+
                 String label = lines[lines.length - 1];
+
                 boolean closed = Boolean.parseBoolean(lines[lines.length - 3]);
+
                 boolean hasNpc = Boolean.parseBoolean(lines[lines.length - 2]);
+
                 String[] availableLoc = Arrays.copyOfRange(lines, 1, lines.length - 3);
+
                 availableLocations.add(availableLoc);
                 switch (name) {
-                    case "Hallway":
+                    case "Chodba":
                         locations.add(new Hallway(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "Cafeteria":
+                    case "Jidelna":
                         locations.add(new Cafeteria(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "ClassRoom7":
+                    case "Trida7":
                         locations.add(new Classroom7(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "ClassRoom28":
+                    case "Trida28":
                         locations.add(new Classroom28(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "Cabinet666":
+                    case "Kabinet666":
                         locations.add(new Cabinet666(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "BoilerRoom":
+                    case "Kotelna":
                         locations.add(new BoilerRoom(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "Restrooms":
+                    case "WC":
                         locations.add(new Restrooms(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "StaffRoom":
+                    case "Sborovna":
                         locations.add(new StaffRoom(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "Workshop":
+                    case "Dilna":
                         locations.add(new Workshop(name, availableLoc, closed, hasNpc, label));
                         break;
-                    case "Courtyard":
+                    case "Dvur":
                         locations.add(new Courtyard(name, availableLoc, closed, hasNpc, label));
                 }
             }

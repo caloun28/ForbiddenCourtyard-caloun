@@ -1,3 +1,5 @@
+package command.console;
+
 import command.Command;
 import command.Exit;
 import command.Movement;
@@ -12,34 +14,31 @@ public class Console {
 
 
     public void inicialization() {
-        map.put("move", new Movement());
+        map.put("jdi", new Movement());
         map.put("exit", new Exit());
     }
 
-    private void doComm() {
-        System.out.print(">>");
+    private String doComm() {
         String command = scanner.nextLine();
         command = command.trim();
         command = command.toLowerCase();
         if(map.containsKey(command)){
-            System.out.println(">> "+map.get(command).execute());
-        }else{
-            System.out.println(">> Nondefined command");
-        }
 
+            return map.get(command).execute();
+        }else{
+            return "Nedefinovany command";
+        }
     }
 
     public void start() {
         inicialization();
-
         try {
             do {
                 doComm();
-            } while(!this.exit);
+            } while(!exit);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
     }
 }
 

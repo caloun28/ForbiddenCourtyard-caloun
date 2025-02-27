@@ -1,10 +1,10 @@
-Hallway/Cafeteria/Cabinet666/Classroom7/Classroom28/BoilerRoom/Workshop/RestRooms/Staffroom/false/false/Hallway is a safe place, you can go anywhere from here.
-Cafeteria/Hallway/false/true/Try to find a key here, somebody might be hiding it.
-Cabinet666/Hallway/true/true/Defeat a enemy to continue in the journey.
-Classroom7/Hallway/false/true/Do you hear it? Somebody is here.
-Classroom28/Hallway/false/true/Someone want's to talk to you.
-BoilerRoom/Hallway/true/true/This room is really strange.
-Workshop/Hallway/false/true/This looks like safe place. And someone might be here.
-Restrooms/Hallway/false/true/I don't know if something is here.
-StaffRoom/Hallway/false/true/This can lead to a end.
-Courtyard/Hallway/true/true/This is it.
+Chodba/Jidelna/Kabinet666/Trida7/Trida28/Kotelna/Dilna/WC/Sborovna/Dvur/false/false/Chodba je bezpečné místo, odtud můžeš jít kamkoliv.
+Jidelna/Chodba/false/true/Snaž se zde najít klíč, někdo ho možná schoval.
+Kabinet666/Chodba/true/true/Poraz nepřítele, abys mohl pokračovat v cestě.
+Trida7/Chodba/false/true/Slyšíš to? Někdo je tady.
+Trida28/Chodba/false/true/Někdo chce s tebou mluvit.
+Kotelna/Chodba/true/true/Tato místnost je opravdu podivná.
+Dilna/Chodba/false/true/Toto vypadá jako bezpečné místo. A někdo tu možná je.
+WC/Chodba/false/true/Nevím, jestli je tu něco.
+Sborovna/Chodba/false/true/Toto může vést k konci.
+Dvur/Chodba/true/true/Tohle je ono.

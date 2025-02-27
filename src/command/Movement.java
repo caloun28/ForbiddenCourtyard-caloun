@@ -14,12 +14,11 @@ public class Movement implements Command {
         if (currentLocation == null) {
             map.loadingMap();
             currentLocation = map.getLocations().getFirst();
-        }
 
-        System.out.println("Available locations: " + String.join(", ", currentLocation.getAvailableLocations()));
-        System.out.println("Where do you want to move?\n>>");
+        }
+        System.out.println("Dostupne lokace: " + String.join("," , currentLocation.getAvailableLocations()) + "\nKam chces jit?\n>>");
         String input = scanner.nextLine();
-        moveTo(input);
+        System.out.println(moveTo(input) + "\n>>");
         return "";
     }
 
@@ -27,28 +26,28 @@ public class Movement implements Command {
         return false;
     }
 
-    public void moveTo(String name) {
+    public String moveTo(String name) {
         if (currentLocation.getName().equalsIgnoreCase(name)) {
-            System.out.println("You are already in this location!");
+            return "Jsi v teto mistnosti!";
         } else {
             for(String location : currentLocation.getAvailableLocations()) {
                 if (location.equalsIgnoreCase(name)) {
                     for(Location loc : map.getLocations()) {
                         if (loc.getName().equalsIgnoreCase(name)) {
                             if (loc.isClosed()) {
-                                System.out.println("This room is closed, try to find a key.");
-                                return;
+                                return "Tato mistnost je zamcena. Jsi furt na chodbe";
                             }
 
                             currentLocation = loc;
-                            System.out.println("You moved to: " + currentLocation.getName());
-                            return;
+                            return "Posunul jsi se do: " + currentLocation.getName();
                         }
                     }
                 }
             }
 
-            System.out.println("You can't move there.");
         }
+        return "Neco je spatne";
     }
+
+
 }
