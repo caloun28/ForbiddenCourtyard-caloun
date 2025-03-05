@@ -1,19 +1,20 @@
 package world;
 
+import entity.Npc;
+
 import java.util.Arrays;
 
 public abstract class Location {
     private String name;
     private String label;
     private boolean closed;
-    private boolean hasNpc;
+    private Npc npc;
     private String[] availableLocations;
 
-    public Location(String name, String[] availableLocations, boolean closed, boolean hasNpc, String label) {
+    public Location(String name, String[] availableLocations, boolean closed,String label) {
         this.name = name;
         this.label = label;
         this.closed = closed;
-        this.hasNpc = hasNpc;
         this.availableLocations = availableLocations;
     }
 
@@ -29,13 +30,21 @@ public abstract class Location {
         return name;
     }
 
+    public void setNpc(Npc npc) {
+        this.npc = npc;
+    }
+
+    public Npc getNpc() {
+        return npc;
+    }
+
     @Override
     public String toString() {
         return "Location{" +
                 "name='" + name + '\'' +
                 ", label='" + label + '\'' +
                 ", closed=" + closed +
-                ", hasNpc=" + hasNpc +
+                ", npc=" + npc +
                 ", availableLocations=" + Arrays.toString(availableLocations) +
                 '}';
     }

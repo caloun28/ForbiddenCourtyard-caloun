@@ -1,11 +1,16 @@
 package entity;
 
+import entity.items.Item;
+
+import java.util.ArrayList;
+
 public class Npc {
     private TypeOfNpc typeOfNpc;
     private String name;
     private int health;
     private int damage;
     private boolean alive;
+    private ArrayList<Item> items;
 
     public Npc(TypeOfNpc typeOfNpc, String name, int health, int damage, boolean alive) {
         this.typeOfNpc = typeOfNpc;
@@ -13,6 +18,7 @@ public class Npc {
         this.health = health;
         this.damage = damage;
         this.alive = alive;
+        this.items = new ArrayList<>();
     }
 
     public TypeOfNpc getTypeOfNpc() {
@@ -34,4 +40,9 @@ public class Npc {
     public boolean isAlive() {
         return alive;
     }
+
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
 }
