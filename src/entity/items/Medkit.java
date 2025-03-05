@@ -17,4 +17,8 @@ public class Medkit extends Item {
     public int getPlusHealth() {
         return plusHealth;
     }
+
+    public void setUsed(boolean used) {
+        this.used = used;
+    }
 }

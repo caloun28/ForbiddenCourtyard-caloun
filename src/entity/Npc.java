@@ -1,6 +1,7 @@
 package entity;
 
 import entity.items.Item;
+import player.Player;
 
 import java.util.ArrayList;
 
@@ -45,4 +46,19 @@ public class Npc {
         items.add(item);
     }
 
+    public void removeItem(Item item) {
+        items.remove(item);
+    }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
+    public void attack(Player player) {
+        player.setHealth(player.getHealth() - damage);
+    }
+
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
 }
