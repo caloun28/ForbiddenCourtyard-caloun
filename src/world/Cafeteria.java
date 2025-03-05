@@ -1,7 +1,10 @@
 package world;
 
+import entity.Npc;
+
 public class Cafeteria extends Location{
-    public Cafeteria(String name, String[] availableLocations, boolean closed, boolean hasNpc, String label) {
-        super(name, availableLocations, closed, hasNpc, label);
+
+    public Cafeteria(String name, String[] availableLocations, boolean closed, String label) {
+        super(name, availableLocations, closed,label);
     }
 }

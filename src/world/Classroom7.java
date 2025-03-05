@@ -1,7 +1,10 @@
 package world;
 
+import entity.Npc;
+
 public class Classroom7 extends Location{
-    public Classroom7(String name, String[] availableLocations, boolean closed, boolean hasNpc, String label) {
-        super(name, availableLocations, closed, hasNpc, label);
+
+    public Classroom7(String name, String[] availableLocations, boolean closed,  String label) {
+        super(name, availableLocations, closed, label);
     }
 }
