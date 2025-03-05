@@ -12,7 +12,7 @@ public class Movement implements Command {
 
     public String execute() {
         if (currentLocation == null) {
-            map.loadingMap();
+            map.initialize();
             currentLocation = map.getLocations().getFirst();
 
         }
@@ -39,7 +39,7 @@ public class Movement implements Command {
                             }
 
                             currentLocation = loc;
-                            return "Posunul jsi se do: " + currentLocation.getName();
+                            return "Posunul jsi se do: " + currentLocation.getName() + " a je tu " + loc.getNpc().getName();
                         }
                     }
                 }
