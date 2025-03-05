@@ -1,10 +1,11 @@
 package entity.items;
 
-public class Key {
+public class Key extends Item {
     private TypeOfKey keyType;
     private boolean used;
 
-    public Key(boolean used, TypeOfKey keyType) {
+    public Key(String name, boolean used, TypeOfKey keyType) {
+        super(name);
         this.used = used;
         this.keyType = keyType;
     }

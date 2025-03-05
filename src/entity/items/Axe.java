@@ -1,9 +1,10 @@
 package entity.items;
 
-public class Axe {
+public class Axe extends Item{
     private int plusDamage;
 
-    public Axe(int plusDamage) {
+    public Axe(String name, int plusDamage) {
+        super(name);
         this.plusDamage = plusDamage;
     }
 
