@@ -8,4 +8,5 @@ public class Exit implements Command {
     public boolean exit() {
         return true;
     }
+
 }

@@ -1,25 +1,38 @@
 package command;
 
 import java.util.Scanner;
+
+import command.console.Console;
+import player.Player;
 import world.Location;
 import world.Map;
 
 public class Movement implements Command {
     private Scanner scanner = new Scanner(System.in);
-    private Map map = new Map();
+    private Map map;
     private Location currentLocation;
+    private Player player;
 
+    public Movement(Console console) {
+        this.player = console.getPlayer();
+        this.map = console.getGameMap();
+    }
 
     public String execute() {
+
         if (currentLocation == null) {
             map.initialize();
             currentLocation = map.getLocations().getFirst();
-
+            player.moveTo(currentLocation);
         }
-        System.out.println("Dostupne lokace: " + String.join("," , currentLocation.getAvailableLocations()) + "\nKam chces jit?\n>>");
-        String input = scanner.nextLine();
-        System.out.println(moveTo(input) + "\n>>");
-        return "";
+
+        System.out.print("Dostupné lokace: " + String.join(", ", currentLocation.getAvailableLocations()) + "\nKam chceš jít?\n>> ");
+
+        try {
+            return moveTo(scanner.next()) +"\n" + player.toString();
+        }catch(Exception e) {
+            return "Zadej spravnou mistnost";
+        }
     }
 
     public boolean exit() {
@@ -33,14 +46,17 @@ public class Movement implements Command {
             for(String location : currentLocation.getAvailableLocations()) {
                 if (location.equalsIgnoreCase(name)) {
                     for(Location loc : map.getLocations()) {
-                        if (loc.getName().equalsIgnoreCase(name)) {
-                            if (loc.isClosed()) {
-                                return "Tato mistnost je zamcena. Jsi furt na chodbe";
-                            }
+                            if (loc.getName().equalsIgnoreCase(name)) {
+                                    if(!loc.isClosed()){
+                                        player.moveTo(loc);
+                                        currentLocation = loc;
+                                        return "Posunul jsi se do: " + currentLocation;
 
-                            currentLocation = loc;
-                            return "Posunul jsi se do: " + currentLocation.getName() + " a je tu " + loc.getNpc().getName();
-                        }
+                                    }else{
+                                        return "Tato mistnost je zamcena";
+                                    }
+
+                            }
                     }
                 }
             }
