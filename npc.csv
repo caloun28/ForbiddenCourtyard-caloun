@@ -1,9 +1,9 @@
-AGGRESSIVE/Agresivní kuchařka/100/10/true/Jidelna
-AGGRESSIVE/Tajemný učitel/110/13/true/Kabinet 666
-AGGRESSIVE/Mutantní student/120/15/true/Trida 7
-AGGRESSIVE/Šílený školník/150/20/true/Kotelna
-AGGRESSIVE/Nemrtvý zástupce/200/25/true/Sborovna
-AGGRESSIVE/Nemrtvý ředitel/500/35/true/Dvur
-FRIENDLY/Schovaný student/100/0/true/WC
-FRIENDLY/Starý profesor/100/0/true/Trida 28
+AGGRESSIVE/Agresivni kucharka/100/10/true/Jidelna
+AGGRESSIVE/Tajemny učitel/110/13/true/Kabinet
+AGGRESSIVE/Mutantni student/120/15/true/Trida7
+AGGRESSIVE/Sileny skolnik/150/20/true/Kotelna
+AGGRESSIVE/Nemrtvy zastupce/200/25/true/Sborovna
+AGGRESSIVE/Nemrtvy reditel/250/35/true/Dvur
+FRIENDLY/Schovany student/100/0/true/WC
+FRIENDLY/Stary profesor/100/0/true/Trida28
 FRIENDLY/Mistr/100/0/true/Dilna
