@@ -10,4 +10,21 @@ public abstract class Item {
     public String getName() {
         return name;
     }
+
+    public TypeOfKey getKeyType() {
+        return null;
+    }
+
+    public boolean isUsed() {
+        return false;
+    }
+
+    public void setUsed(boolean used) {
+
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
 }

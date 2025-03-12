@@ -4,6 +4,7 @@ import entity.items.Item;
 import player.Player;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Npc {
     private TypeOfNpc typeOfNpc;
@@ -12,6 +13,7 @@ public class Npc {
     private int damage;
     private boolean alive;
     private ArrayList<Item> items;
+    private Random rand = new Random();
 
     public Npc(TypeOfNpc typeOfNpc, String name, int health, int damage, boolean alive) {
         this.typeOfNpc = typeOfNpc;
@@ -51,14 +53,29 @@ public class Npc {
     }
 
     public void setHealth(int health) {
-        this.health = health;
+        if(health > 0) {
+            this.health = health;
+        }else{
+            this.alive = false;
+        }
+
     }
 
     public void attack(Player player) {
-        player.setHealth(player.getHealth() - damage);
+        int realDamage = damage+ rand.nextInt(7);
+        player.setHealth(player.getHealth() - realDamage);
     }
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+
+    public ArrayList<Item> getItems() {
+        return items;
+    }
+
+    @Override
+    public String toString() {
+        return name + " s " + health + "HP " + " a ma " + items;
     }
 }

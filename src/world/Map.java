@@ -16,8 +16,8 @@ public class Map {
 
     public void initialize() {
         loadingMap();
-        loadItems();
         loadNpc();
+        loadItems();
     }
 
     public void loadNpc() {
@@ -46,15 +46,15 @@ public class Map {
         }
     }
 
-    public void loadItems(){
+    public void loadItems() {
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader("items.csv"))) {
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split("/");
                 String itemType = lines[0];
                 String name = lines[1];
-                String npcName = lines[lines.length - 1];
                 boolean used = Boolean.parseBoolean(lines[2]);
+                String npcName = lines[lines.length - 1];
                 Item item = null;
 
                 switch (itemType) {
@@ -77,21 +77,28 @@ public class Map {
                         int quality = Integer.parseInt(lines[3]);
                         item = new Bottle(name, used, quality);
                         break;
+                    default:
+                        System.out.println("Neznámý typ předmětu: " + itemType);
+                        continue;
                 }
 
                 if (item != null) {
+                    boolean itemAssigned = false;
                     for (Location location : locations) {
                         Npc npc = location.getNpc();
-
-                        if (npc!= null && npc.getName().equals(npcName)) {
+                        if (npc != null && npc.getName().equals(npcName)) {
                             npc.addItem(item);
+                            itemAssigned = true;
                             break;
                         }
+                    }
+                    if (!itemAssigned) {
+                        System.out.println("Předmět '" + name + "' nebyl přiřazen žádnému NPC!");
                     }
                 }
             }
         } catch (IOException e) {
-            System.out.println("something went wrong");
+            System.out.println("Chyba při načítání předmětů: " + e.getMessage());
         }
     }
 
@@ -105,7 +112,7 @@ public class Map {
 
                 String label = lines[lines.length - 1];
 
-                boolean closed = Boolean.parseBoolean(lines[lines.length - 3]);
+                boolean closed = Boolean.parseBoolean(lines[lines.length - 2]);
 
 
 
@@ -119,13 +126,13 @@ public class Map {
                     case "Jidelna":
                         locations.add(new Cafeteria(name, availableLoc, closed, label));
                         break;
-                    case "Trida 7":
+                    case "Trida7":
                         locations.add(new Classroom7(name, availableLoc, closed, label));
                         break;
-                    case "Trida 28":
+                    case "Trida28":
                         locations.add(new Classroom28(name, availableLoc, closed, label));
                         break;
-                    case "Kabinet 666":
+                    case "Kabinet":
                         locations.add(new Cabinet666(name, availableLoc, closed, label));
                         break;
                     case "Kotelna":
@@ -148,6 +155,15 @@ public class Map {
             System.out.println("something went wrong");
         }
 
+    }
+
+    public Location getLocationByName(String name) {
+        for (Location location : locations) {
+            if (location.getName().equalsIgnoreCase(name)) {
+                return location;
+            }
+        }
+        return null;
     }
 
     public ArrayList<Location> getLocations() {
