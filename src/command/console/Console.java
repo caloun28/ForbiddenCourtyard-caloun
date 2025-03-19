@@ -34,7 +34,7 @@ public class Console {
 
         if (startingLocation != null) {
             player.setCurrentLocation(startingLocation);
-            System.out.println("Hráč začíná v lokaci: " + player.getCurrentLocation().getName());
+            System.out.println("Hráč začíná v lokaci: " + player.getCurrentLocation().getName() + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──");
         } else {
             System.out.println("Chyba: Nebyla nalezena žádná výchozí lokace!");
         }
@@ -58,6 +58,7 @@ public class Console {
     private void doComm() {
         String command = scanner.nextLine().trim().toLowerCase();
         if (map.containsKey(command)) {
+            System.out.println("─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ");
             String result = map.get(command).execute();
             System.out.println(result);
             if (!exit) {
