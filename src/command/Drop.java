@@ -23,10 +23,10 @@ public class Drop implements Command {
         Location currentLocation = player.getCurrentLocation();
         try {
             if(player.getInventory().getItems().isEmpty()) {
-                return "Nemas nic v inventari";
+                return "Nemas nic v inventari\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
             }
 
-            System.out.print("Zadej co chces vyhodit\n>> ");
+            System.out.print("Mas u sebe " + player.getInventory().getItems() + "\nZadej co chces vyhodit\n>> ");
             String input = sc.nextLine().trim().toLowerCase();
             Item itemToDrop = null;
 
@@ -38,17 +38,17 @@ public class Drop implements Command {
             }
 
             if (itemToDrop == null) {
-                return "Nemas tento predmet";
+                return "Nemas tento predmet\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
             }
 
             currentLocation.addItem(itemToDrop);
             player.getInventory().removeItem(itemToDrop.getName());
 
         } catch (InputMismatchException e) {
-            return "Zadej spravny item";
+            return "Zadej spravny item\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
 
-        return player.toString();
+        return player + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
     }
 
     @Override

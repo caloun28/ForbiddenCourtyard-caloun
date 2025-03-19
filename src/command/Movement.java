@@ -29,7 +29,7 @@ public class Movement implements Command {
         System.out.print("Dostupné lokace: " + String.join(", ", currentLocation.getAvailableLocations()) + "\nKam chceš jít?\n>> ");
 
         try {
-            return moveTo(scanner.next()) +"\n" + player.toString();
+            return moveTo(scanner.next())+ "\n"  + player.toString() +"\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }catch(Exception e) {
             return "Zadej spravnou mistnost";
         }

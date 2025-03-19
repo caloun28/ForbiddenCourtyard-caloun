@@ -17,25 +17,25 @@ public class Hint implements Command {
         Location currentLocation = player.getCurrentLocation();
         switch (currentLocation.getName()){
             case "Chodba":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel() + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Jidelna":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel() + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Kabinet":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Trida7":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Trida28":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Kotelna":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Dilna":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "WC":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Sborovna":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             case "Dvur":
-                return currentLocation.getLabel();
+                return currentLocation.getLabel()+ "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
             default:
                 return "Spatna mistnost";
         }

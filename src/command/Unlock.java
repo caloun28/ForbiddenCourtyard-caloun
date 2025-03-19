@@ -24,7 +24,7 @@ public class Unlock implements Command {
     @Override
     public String execute() {
         Player player = console.getPlayer();
-
+        Location currentLocation = player.getCurrentLocation();
         try {
 
 
@@ -41,12 +41,25 @@ public class Unlock implements Command {
             }
 
             if (toUnlock == null) {
-                return "Tato místnost neexistuje.";
+                return "Tato místnost neexistuje.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
             }
 
             if (!toUnlock.isClosed()) {
-                return "Tato místnost je již otevřená.";
+                return "Tato místnost je již otevřená.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
             }
+
+            boolean canAccess = false;
+            for (String availableLocation : currentLocation.getAvailableLocations()) {
+                if (availableLocation.equalsIgnoreCase(toUnlock.getName())) {
+                    canAccess = true;
+                    break;
+                }
+            }
+
+            if (!canAccess) {
+                return "Nemůžeš odemknout místnost, ke které nemáš přístup.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+            }
+
 
 
             TypeOfKey requiredKeyType;
@@ -61,7 +74,7 @@ public class Unlock implements Command {
                     requiredKeyType = TypeOfKey.FOR_BOILERROOM;
                     break;
                 default:
-                    return "Tuto místnost nelze odemknout klicem.";
+                    return "Tuto místnost nelze odemknout klicem.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
             }
 
 
@@ -73,7 +86,7 @@ public class Unlock implements Command {
                         toUnlock.setClosed(false);
                         key.setUsed(true);
 
-                        return "Pouzil jsi " + key.getName() + " a odemkl jsi " + toUnlock.getName() + ".";
+                        return "Pouzil jsi " + key.getName() + " a odemkl jsi " + toUnlock.getName() + ".\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                     }
                 }
             }
@@ -82,7 +95,7 @@ public class Unlock implements Command {
         } catch (InputMismatchException e) {
             return "Chyba ve vstupu";
         }
-        return player.toString();
+        return player + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
 
     }
 

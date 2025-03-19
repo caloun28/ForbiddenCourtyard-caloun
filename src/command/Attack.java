@@ -20,13 +20,13 @@ public class Attack implements Command {
         Npc npc = currentLocation.getNpc();
 
         if (npc == null) {
-            return "V této lokaci není žádné NPC, na které bys mohl zaútočit!";
+                return "V této lokaci není žádné NPC, na které bys mohl zaútočit!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
         }
         if (!player.isAlive()) {
-            return "Nemůžeš útočit, jsi mrtvý!";
+            return "Nemůžeš útočit, jsi mrtvý!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
         }
         if (!npc.isAlive()) {
-            return "Toto NPC už je mrtvé!";
+            return "Toto NPC už je mrtvé!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
         }
 
         StringBuilder text = new StringBuilder();
@@ -37,14 +37,13 @@ public class Attack implements Command {
             text.append("Zasáhl jsi ").append(npc.getName()).append(" a má ").append(npc.getHealth()).append(" životů.\n");
 
             if (!npc.isAlive()) {
-                text.append(npc.getName()).append(" BYL PORAŽEN/A!\n");
 
-                if (npc.getName().equalsIgnoreCase("Nemrtvý ředitel")) {
-                    text.append("\nPorazil jsi Nemrtvého ředitele! Hra končí.\n");
+                if (npc.getName().equalsIgnoreCase("Nemrtvy reditel")) {
+                    text.append("\nPORAZIL JSI NEMRTVEHO REDITELE. HRA KONCI\n");
                     console.setExit(true);
                     return text.toString();
                 }
-
+                text.append(npc.getName()).append(" BYL/A PORAŽEN/A!\n");
                 if (!npc.getItems().isEmpty()) {
                     text.append("Z " + npc.getName() + " vypadly tyto předměty:");
 
@@ -56,12 +55,12 @@ public class Attack implements Command {
                     npc.getItems().clear();
                 }
                 player.healToMax();
-                text.append("Obnovili se ti zivoty na max");
+                text.append("Obnovili se ti zivoty na max\n");
                 break;
             }
 
             npc.attack(player);
-            text.append(npc.getName()).append(" tě zasáhl. Zbývá ti ").append(player.getHealth()).append(" životů.\n");
+            text.append(npc.getName()).append(" tě zasáhl. Zbývá ti ").append(player.getHealth()).append(" životů.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── \n");
 
             if (!player.isAlive()) {
                 text.append("ZEMŘEL JSI!\n");
@@ -70,7 +69,7 @@ public class Attack implements Command {
             }
         }
 
-        return text.toString();
+        return text + "─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
     }
 
     @Override

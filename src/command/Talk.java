@@ -6,6 +6,7 @@ import entity.TypeOfNpc;
 import entity.items.Bottle;
 import entity.items.Item;
 import entity.items.Medkit;
+import entity.items.Tools;
 import player.Player;
 import world.Location;
 
@@ -23,12 +24,16 @@ public class Talk implements Command {
         Npc npc = currentLocation.getNpc();
 
         if(currentLocation.getNpc() == null){
-            return "Nikdo tu neni";
+            return "Nikdo tu neni\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }else {
             TypeOfNpc typeOfNpc = npc.getTypeOfNpc();
             switch (typeOfNpc) {
                 case AGGRESSIVE:
-                    return "Nechci s tebou mluvit, ukaz co v tobe je.";
+                    if(npc.isAlive()) {
+                        return "Nechci s tebou mluvit, ukaz co v tobe je.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+                    }else {
+                        return "Tato entita uz je mrtva\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+                    }
                 case FRIENDLY:
                     if (npc.getName().equalsIgnoreCase("Schovany student")) {
                         Medkit medkit = null;
@@ -40,18 +45,17 @@ public class Talk implements Command {
                         }
 
                         if (medkit != null) {
-                            System.out.println("Ahoj, takze ty jsi ten, ktery nas tu zachrani?\n" +
-                                    "Pokud ano rad bych ti pomohl, tady mas lekarnicku.\n" +
-                                    "Muzes ji pouzit kdykoliv.");
                             if (player.getInventory().addItem(medkit)) {
                                 npc.removeItem(medkit);
-                                return "Dostal jsi lekarnicku.";
+                                return "Ahoj, takze ty jsi ten, ktery nas tu zachrani?\n" +
+                                        "Pokud ano rad bych ti pomohl, tady mas lekarnicku.\n" +
+                                        "Muzes ji pouzit kdykoliv.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             } else {
-                                return "Nemas misto na lekarnicku";
+                                return "Nemas misto na lekarnicku\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             }
 
                         } else {
-                            return "Nemam u sebe zadnou lekarnicku";
+                            return "Nemam u sebe zadnou lekarnicku\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                         }
                     }
 
@@ -64,7 +68,7 @@ public class Talk implements Command {
                         if (classroom7 != null) {
                             Npc mutant = classroom7.getNpc();
                             if (mutant != null && mutant.getName().equalsIgnoreCase("Mutantni student") && mutant.isAlive()) {
-                                return "Musis prvne porazit to monstrum.";
+                                return "Musis prvne porazit to monstrum.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             } else {
                                 Bottle bottle = null;
                                 for (Item item : npc.getItems()) {
@@ -74,19 +78,31 @@ public class Talk implements Command {
                                     }
                                 }
                                 if (bottle != null) {
-                                    System.out.println("Uz jsi ho zabil?\nTady mas. Kdyz si to das, tak budes vice odolny vuci utokum.");
                                     if (player.getInventory().addItem(bottle)) {
                                         npc.removeItem(bottle);
-                                        return "Dostal jsi lahvicku.";
+                                        return "Uz jsi ho zabil?\nTady mas. Kdyz si to das, tak budes vice odolny vuci utokum.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                                     } else {
-                                        return "Nemas misto na lahvicku";
+                                        return "Nemas misto na lahvicku\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                                     }
 
                                 } else {
-                                    return "Promin, tu lahvicku u sebe nemam.";
+                                    return "Promin, tu lahvicku u sebe nemam.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                                 }
                             }
                         }
+                    }
+                    if (npc.getName().equalsIgnoreCase("Mistr")){
+                        Tools tools = null;
+                        for (Item item : npc.getItems()) {
+                            if (item instanceof Tools) {
+                                tools = (Tools) item;
+                                break;
+                            }
+                        }
+                        if (npc.getItems().contains(tools)) {
+                            return "Co po mne jeste chces, sekeru jsem ti uz opravil\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+                        }
+                        return "Pokud mi doneses sekeru, tak ti ji muzu opravit\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                     }
             }
         }

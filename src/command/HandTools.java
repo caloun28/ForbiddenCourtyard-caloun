@@ -20,12 +20,12 @@ public class HandTools implements Command {
         Location currentLocation = player.getCurrentLocation();
 
         if (!currentLocation.getName().equalsIgnoreCase("dilna")) {
-            return "Nejsi v dilne.";
+            return "Nejsi v dilne.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
 
         Npc npc = currentLocation.getNpc();
         if (npc == null || !npc.getName().equalsIgnoreCase("mistr") || !npc.isAlive()) {
-            return "Mistr nene v teto mistnosti.";
+            return "Mistr nene v teto mistnosti.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
 
 
@@ -44,9 +44,9 @@ public class HandTools implements Command {
             player.increaseDamage(axe);
             if (player.getInventory().addItem(axe)) {
                 npc.removeItem(axe);
-                return "Predal jsi mistrovi naradi a sekeru, kterou ti opravil a vratil zpatky.";
+                return "Predal jsi mistrovi naradi a sekeru, kterou ti opravil a vratil zpatky.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
             } else {
-                return "Nemas misto na opravenou sekeru";
+                return "Nemas misto na opravenou sekeru\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
             }
 
         }

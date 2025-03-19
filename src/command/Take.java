@@ -23,7 +23,7 @@ public class Take implements Command {
 
        try {
            if(currentLocation.getItems().isEmpty()){
-               return "V teto mistnosti nemuzes nic sebrat";
+               return "V teto mistnosti nemuzes nic sebrat\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
            }
 
            System.out.print("Je tady:" + currentLocation.getItems() + "\nZadej co chces sebrat\n>> ");
@@ -38,11 +38,11 @@ public class Take implements Command {
            }
 
            if (itemToTake == null) {
-               return "Tento predmet tu neni";
+               return "Tento predmet tu neni\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
            }
 
            if (!player.getInventory().addItem(itemToTake)) {
-               return "Nemuzes mit vic nez 3 veci";
+               return "Nemuzes mit vic nez 3 veci\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
            }else{
                currentLocation.getItems().remove(itemToTake.getName());
            }
@@ -50,12 +50,12 @@ public class Take implements Command {
 
 
        }catch (InputMismatchException e){
-           return "Zadej spravny item";
+           return "Zadej spravny item\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
        }
 
 
 
-        return player.toString();
+        return player + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
     }
 
     @Override

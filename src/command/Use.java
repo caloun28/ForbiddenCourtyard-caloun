@@ -25,7 +25,7 @@ public class Use implements Command {
         Npc npc = currentLocation.getNpc();
 
         if (!player.getInventory().getItems().isEmpty()) {
-            System.out.print("Co chces pouzit\n>>");
+            System.out.print("Mas u sebe "+player.getInventory().getItems() + "\nCo chces pouzit\n>>");
             String input = sc.nextLine().toLowerCase().trim();
             try {
                 switch (input) {
@@ -35,36 +35,40 @@ public class Use implements Command {
                             Medkit medkit = (Medkit) player.getInventory().getItems().get("Mala lekarnicka");
                             if (!medkit.isUsed()) {
                                 player.increaseHealth(medkit);
-                                return "Pouzil jsi lekarnicku a doplnili a zvedli se ti zivoty na " + player.getHealth();
+                                return "Pouzil jsi lekarnicku a doplnili a zvedli se ti zivoty na " + player.getHealth() + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             } else {
-                                return "Lekarnicku jsi uz pouzil";
+                                return "Lekarnicku jsi uz pouzil\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             }
                         } else {
-                            return "Nemas u sebe lekarnicku";
+                            return "Nemas u sebe lekarnicku\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                         }
 
                     case "zajimava lahvicka":
-
                         if (player.getInventory().getItems().containsKey("Zajimava lahvicka")) {
                             Bottle bottle = (Bottle) player.getInventory().getItems().get("Zajimava lahvicka");
-                            if(!bottle.isUsed()) {
-                            player.increaseEndurance(npc, bottle);
 
-                            return "Pouzil jsi lahvicku a mas vetsi odolnost proti utokum";
-                            }else{
-                                return "Lahvicku jsi uz pouzil";
+                            if (bottle.isUsed()) {
+                                return "Lahvicku jsi uz pouzil\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+                            }
+
+                            if (currentLocation.getNpc() != null) {
+                                player.increaseEndurance(npc, bottle);
+                                bottle.setUsed(true);
+                                return "Pouzil jsi lahvicku a mas vetsi odolnost proti utokum\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+                            } else {
+                                return "Tady nemuzes lahvicku pouzit\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             }
                         } else {
-                            return "Nemas u sebe lahvicku";
+                            return "Nemas u sebe lahvicku\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                         }
                 }
             } catch (InputMismatchException e) {
                 return "Zadej validni input";
             }
         } else {
-            return "Nic u sebe nemas";
+            return "Nic u sebe nemas\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
-        return player.toString();
+        return player + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
     }
 
 
