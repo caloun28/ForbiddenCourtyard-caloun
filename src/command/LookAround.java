@@ -33,13 +33,13 @@ public class LookAround implements Command {
         if (!currentLocation.getItems().isEmpty()) {
             text.append("V mistnosti jsou tyto predmety:");
             for (Item item : currentLocation.getItems().values()) {
-                text.append(" - ").append(item.getName()).append("\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ");
+                text.append(" - ").append(item.getName()).append("\n");
             }
         } else {
             text.append("V mistnosti nejsou zadne predmety.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──");
         }
 
-        return text.toString();
+        return text + "─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
     }
 
     @Override

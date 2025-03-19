@@ -56,7 +56,7 @@ public class Use implements Command {
                                 bottle.setUsed(true);
                                 return "Pouzil jsi lahvicku a mas vetsi odolnost proti utokum\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             } else {
-                                return "Tady nemuzes lahvicku pouzit\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+                                return "Tady nemuzes lahvicku pouzit, pouzij ji a pred utokem\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             }
                         } else {
                             return "Nemas u sebe lahvicku\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
