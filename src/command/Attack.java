@@ -20,13 +20,13 @@ public class Attack implements Command {
         Npc npc = currentLocation.getNpc();
 
         if (npc == null) {
-                return "V této lokaci není žádné NPC, na které bys mohl zaútočit!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
+                return "V teto lokaci neni zadne NPC, na ktere bys mohl zautocit!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
         }
         if (!player.isAlive()) {
-            return "Nemůžeš útočit, jsi mrtvý!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
+            return "Nemuzes utocit, jsi mrtvy!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
         }
         if (!npc.isAlive()) {
-            return "Toto NPC už je mrtvé!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
+            return "Toto NPC už je mrtve!\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";
         }
 
         StringBuilder text = new StringBuilder();
@@ -63,7 +63,7 @@ public class Attack implements Command {
             text.append(npc.getName()).append(" tě zasáhl. Zbývá ti ").append(player.getHealth()).append(" životů.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── \n");
 
             if (!player.isAlive()) {
-                text.append("ZEMŘEL JSI!\n");
+                    text.append("ZEMREL JSI!");
                 console.setExit(true);
                 return text.toString();
             }

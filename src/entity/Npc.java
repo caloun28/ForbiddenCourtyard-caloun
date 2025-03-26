@@ -2,6 +2,7 @@ package entity;
 
 import entity.items.Item;
 import player.Player;
+import world.Location;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,6 +15,7 @@ public class Npc {
     private boolean alive;
     private ArrayList<Item> items;
     private Random rand = new Random();
+    private Location currentLocation;
 
     public Npc(TypeOfNpc typeOfNpc, String name, int health, int damage, boolean alive) {
         this.typeOfNpc = typeOfNpc;
@@ -21,6 +23,7 @@ public class Npc {
         this.health = health;
         this.damage = damage;
         this.alive = alive;
+        this.currentLocation = null;
         this.items = new ArrayList<>();
     }
 
@@ -66,6 +69,18 @@ public class Npc {
         player.setHealth(player.getHealth() - realDamage);
     }
 
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
+
     public void setDamage(int damage) {
         this.damage = damage;
     }
@@ -73,6 +88,8 @@ public class Npc {
     public ArrayList<Item> getItems() {
         return items;
     }
+
+
 
     @Override
     public String toString() {

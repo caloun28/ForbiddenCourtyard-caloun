@@ -39,6 +39,10 @@ public class Player {
         return health;
     }
 
+    public void setAlive(boolean alive) {
+        this.alive = alive;
+    }
+
     public int getMaxHealth() {
         return maxHealth;
     }
