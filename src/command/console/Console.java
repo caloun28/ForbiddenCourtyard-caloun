@@ -14,6 +14,7 @@ public class Console {
     private Scanner scanner = new Scanner(System.in);
     private Player player = new Player(100,20,true);
     private Map gameMap;
+
     public Player getPlayer() {
         return player;
     }
@@ -24,6 +25,10 @@ public class Console {
 
     public void setExit(boolean exit) {
         this.exit = exit;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
     }
 
     public Console() {

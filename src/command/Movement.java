@@ -40,6 +40,9 @@ public class Movement implements Command {
     }
 
     public String moveTo(String name) {
+        map.initialize();
+        currentLocation = map.getLocations().getFirst();
+
         if (currentLocation.getName().equalsIgnoreCase(name)) {
             return "Jsi v teto mistnosti!";
         } else {

@@ -25,12 +25,12 @@ public class HandTools implements Command {
 
         Npc npc = currentLocation.getNpc();
         if (npc == null || !npc.getName().equalsIgnoreCase("mistr") || !npc.isAlive()) {
-            return "Mistr nene v teto mistnosti.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+            return "Mistr neni v teto mistnosti.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
 
 
         if (!player.getInventory().getItems().containsKey("Kladivo") && !player.getInventory().getItems().containsKey("Zachrana sekera")) {
-            return "Nemáš kladivo ani sekeru.";
+            return "Nemas kladivo ani sekeru.";
         }else{
             Item tool = player.getInventory().getItems().get("Kladivo");
             Axe axe = (Axe) player.getInventory().getItems().get("Zachrana sekera");

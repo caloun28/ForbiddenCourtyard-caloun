@@ -27,6 +27,10 @@ public class Use implements Command {
         if (!player.getInventory().getItems().isEmpty()) {
             System.out.print("Mas u sebe "+player.getInventory().getItems() + "\nCo chces pouzit\n>>");
             String input = sc.nextLine().toLowerCase().trim();
+
+            if (!input.equals("mala lekarnicka") && !input.equals("zajimava lahvicka")) {
+                return "Zadej nejaky predmet\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
+            }
             try {
                 switch (input) {
                     case "mala lekarnicka":
@@ -68,6 +72,7 @@ public class Use implements Command {
         } else {
             return "Nic u sebe nemas\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
+
         return player + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
     }
 

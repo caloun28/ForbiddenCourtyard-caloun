@@ -102,6 +102,7 @@ public class Player {
         if(!bottle.isUsed()) {
             npc.setDamage(npc.getDamage() / bottle.getQuality());
         }
+        bottle.setUsed(true);
     }
 
     @Override
