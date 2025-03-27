@@ -21,6 +21,11 @@ public class Unlock implements Command {
         this.map = console.getGameMap();
     }
 
+    /**
+     * With this method, player can choose to unlock a locked door. He can unlock it, only if he has an assigned key
+     * and access to the room.
+     * @return
+     */
     @Override
     public String execute() {
         Player player = console.getPlayer();

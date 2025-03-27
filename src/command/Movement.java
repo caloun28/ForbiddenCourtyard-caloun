@@ -18,6 +18,10 @@ public class Movement implements Command {
         this.map = console.getGameMap();
     }
 
+    /**
+     * This method moves player only if the input equals the available location.
+     * @return
+     */
     public String execute() {
 
         if (currentLocation == null) {
@@ -39,6 +43,11 @@ public class Movement implements Command {
         return false;
     }
 
+    /**
+     * This method searches between available locations and moves player.
+     * @param name
+     * @return
+     */
     public String moveTo(String name) {
         map.initialize();
         currentLocation = map.getLocations().getFirst();

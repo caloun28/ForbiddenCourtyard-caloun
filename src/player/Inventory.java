@@ -8,6 +8,11 @@ public class Inventory {
     private HashMap<String, Item> inventory = new HashMap<>();
     private int maxItems = 3;
 
+    /**
+     * Adds items to an inventory until it reaches it's limit which is 3 items.
+     * @param item
+     * @return
+     */
     public boolean addItem(Item item) {
         if (inventory.size() >= maxItems) {
             return false;

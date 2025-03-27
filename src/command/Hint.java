@@ -11,6 +11,10 @@ public class Hint implements Command {
         this.console = console;
     }
 
+    /**
+     * This method writes a hint for each room.
+     * @return
+     */
     @Override
     public String execute() {
         Player player = console.getPlayer();

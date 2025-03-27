@@ -12,6 +12,10 @@ public class LookAround implements Command {
         this.console = console;
     }
 
+    /**
+     * When player uses this command it will write information about the room where the player is.
+     * @return
+     */
     @Override
     public String execute() {
         Player player = console.getPlayer();

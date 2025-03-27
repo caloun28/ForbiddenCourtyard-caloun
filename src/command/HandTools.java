@@ -14,6 +14,12 @@ public class HandTools implements Command {
         this.console = console;
     }
 
+    /**
+     * With this method player can hand tools and axe to a workshop foreman
+     * and with the tools he will repair the axe and hand it to you after.
+     * But it will happen only if player has both items.
+     * @return
+     */
     @Override
     public String execute() {
         Player player = console.getPlayer();

@@ -15,6 +15,11 @@ public class Take implements Command {
         this.console = console;
     }
 
+    /**
+     * This method detects if there is an object in this room. If so, the player can select this object
+     * and put it in his inventory.
+     * @return
+     */
     @Override
     public String execute() {
         Player player = console.getPlayer();

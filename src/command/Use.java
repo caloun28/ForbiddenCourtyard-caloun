@@ -18,6 +18,10 @@ public class Use implements Command {
         this.console = console;
     }
 
+    /**
+     * Player can use an item that he has in his inventory and which he chose.
+     * @return
+     */
     @Override
     public String execute() {
         Player player = console.getPlayer();

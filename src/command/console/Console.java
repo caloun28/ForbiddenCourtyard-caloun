@@ -6,6 +6,7 @@ import world.Location;
 import world.Map;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Console {
@@ -54,13 +55,14 @@ public class Console {
         map.put("odemkni", new Unlock(this));
         map.put("prozkoumej", new LookAround(this));
         map.put("podej", new HandTools(this));
-        map.put("prikazy", new Help());
+        map.put("pomoc", new Help());
         map.put("pouzij", new Use(this));
         map.put("promluv si", new Talk(this));
         map.put("napoveda", new Hint(this));
     }
 
     private void doComm() {
+
         String command = scanner.nextLine().trim().toLowerCase();
         if (map.containsKey(command)) {
             System.out.println("─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ");

@@ -55,6 +55,10 @@ public class Npc {
         items.remove(item);
     }
 
+    /**
+     * It sets the lives not to be less than 0 and if they are it sets the npc dead.
+     * @param health
+     */
     public void setHealth(int health) {
         if(health > 0) {
             this.health = health;
@@ -64,6 +68,10 @@ public class Npc {
 
     }
 
+    /**
+     * It counts single attack with random value and damage that npc has.
+     * @param player
+     */
     public void attack(Player player) {
         int realDamage = damage+ rand.nextInt(7);
         player.setHealth(player.getHealth() - realDamage);

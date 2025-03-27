@@ -51,6 +51,10 @@ public class Player {
         this.maxHealth = maxHealth;
     }
 
+    /**
+     * It sets the lives not to be less than 0 and if they are it sets player dead.
+     * @param health
+     */
     public void setHealth(int health) {
         if(health > 0) {
             this.health = health;
@@ -80,7 +84,10 @@ public class Player {
         return currentLocation;
     }
 
-
+    /**
+     * When medkit is used, player gets +75 max health.
+     * @param medkit
+     */
     public void increaseHealth(Medkit medkit) {
         if (!medkit.isUsed()) {
             this.health += medkit.getPlusHealth();
@@ -93,15 +100,28 @@ public class Player {
         }
     }
 
+    /**
+     * Increases damage by the axe damage.
+     * @param axe
+     */
     public void increaseDamage(Axe axe){
         this.damage += axe.getPlusDamage();
     }
 
+    /**
+     * It counts single attack with random value and damage that npc has.
+     * @param npc
+     */
     public void attack(Npc npc) {
         int realDamage = damage+ rand.nextInt(7);
         npc.setHealth(npc.getHealth() - realDamage);
     }
 
+    /**
+     * It increases players endurance using the efficiency of the bottle.
+     * @param npc
+     * @param bottle
+     */
     public void increaseEndurance(Npc npc, Bottle bottle) {
         if(!bottle.isUsed()) {
             npc.setDamage(npc.getDamage() / bottle.getQuality());

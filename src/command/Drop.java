@@ -16,6 +16,10 @@ public class Drop implements Command {
         this.console = console;
     }
 
+    /**
+     * Thanks to this method player can drop item that he has in his inventory.
+     * @return
+     */
     @Override
     public String execute() {
 

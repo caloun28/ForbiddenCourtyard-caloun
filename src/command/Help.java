@@ -3,6 +3,10 @@ package command;
 import java.io.*;
 
 public class Help implements Command {
+    /**
+     * It will show every command that player can use.
+     * @return
+     */
     @Override
     public String execute() {
         StringBuilder text = new StringBuilder();

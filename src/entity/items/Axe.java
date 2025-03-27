@@ -12,6 +12,10 @@ public class Axe extends Item{
         return plusDamage;
     }
 
+    /**
+     * It prevents the axe from having damage below 0
+     * @param plusDamage
+     */
     public void setPlusDamage(int plusDamage) {
         if (plusDamage>0) {
             this.plusDamage = plusDamage;

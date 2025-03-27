@@ -11,7 +11,12 @@ public class Attack implements Command {
     public Attack(Console console) {
         this.console = console;
     }
-
+    /**
+     * This method is for dual attack between player and given npc to the room. If the player wins the duel
+     * an item will be dropped from the npc and player will be healed to max health. IF the defeated npc is
+     * the final boss, game will end.
+     * @return
+     */
     @Override
     public String execute() {
 

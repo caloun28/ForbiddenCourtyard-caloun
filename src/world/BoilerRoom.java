@@ -1,7 +1,5 @@
 package world;
 
-import entity.Npc;
-
 public class BoilerRoom extends Location {
 
 

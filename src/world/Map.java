@@ -14,12 +14,19 @@ public class Map {
     private ArrayList<Location> locations = new ArrayList();
     private ArrayList<String[]> availableLocations = new ArrayList();
 
+    /**
+     * It loads npcs, items, and rooms all in one.
+     */
     public void initialize() {
         loadingMap();
         loadNpc();
         loadItems();
     }
 
+    /**
+     * Properties for npcs are load into an object by loading from the file.
+     * Each npc is correctly assigned to the given room.
+     */
     public void loadNpc() {
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader("npc.csv"))) {
@@ -46,6 +53,9 @@ public class Map {
         }
     }
 
+    /**
+     * Each item si loaded from a file and assigned to a npc.
+     */
     public void loadItems() {
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader("items.csv"))) {
@@ -102,6 +112,10 @@ public class Map {
         }
     }
 
+    /**
+     * Loads map data from "map.csv" and initializes location objects.
+     *  * Each line contains a name, connected locations, a closed flag, and a label.
+     */
     public void loadingMap() {
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader("map.csv"))) {
@@ -157,6 +171,11 @@ public class Map {
 
     }
 
+    /**
+     * Returns available locations for each room.
+     * @param name
+     * @return
+     */
     public Location getLocationByName(String name) {
         for (Location location : locations) {
             if (location.getName().equalsIgnoreCase(name)) {

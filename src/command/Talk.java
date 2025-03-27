@@ -17,6 +17,10 @@ public class Talk implements Command {
         this.console = console;
     }
 
+    /**
+     * If player chose to talk, it will return him a message based on type of the npc.
+     * @return
+     */
     @Override
     public String execute() {
         Player player = console.getPlayer();
