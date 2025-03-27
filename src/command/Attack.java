@@ -6,6 +6,9 @@ import entity.items.Item;
 import player.Player;
 import world.Location;
 
+/**
+ * Attack class is a command for attacking feature in the game.
+ */
 public class Attack implements Command {
     private Console console;
     public Attack(Console console) {
@@ -15,7 +18,7 @@ public class Attack implements Command {
      * This method is for dual attack between player and given npc to the room. If the player wins the duel
      * an item will be dropped from the npc and player will be healed to max health. IF the defeated npc is
      * the final boss, game will end.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

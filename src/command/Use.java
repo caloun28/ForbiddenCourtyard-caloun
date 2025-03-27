@@ -10,6 +10,9 @@ import world.Location;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * This class is for using some item.
+ */
 public class Use implements Command {
     private Scanner sc = new Scanner(System.in);
     private Console console;
@@ -20,7 +23,7 @@ public class Use implements Command {
 
     /**
      * Player can use an item that he has in his inventory and which he chose.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

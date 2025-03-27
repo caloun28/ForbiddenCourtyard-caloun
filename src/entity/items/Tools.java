@@ -1,5 +1,8 @@
 package entity.items;
 
+/**
+ * This class represents tools as an item.
+ */
 public class Tools extends Item{
     private boolean used;
 

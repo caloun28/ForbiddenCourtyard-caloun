@@ -8,6 +8,9 @@ import world.Location;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * This class is for controlling that player can take the item.
+ */
 public class Take implements Command {
     private Console console;
     private Scanner sc = new Scanner(System.in);
@@ -18,7 +21,7 @@ public class Take implements Command {
     /**
      * This method detects if there is an object in this room. If so, the player can select this object
      * and put it in his inventory.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

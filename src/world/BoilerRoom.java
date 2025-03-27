@@ -1,5 +1,8 @@
 package world;
 
+/**
+ * Inherited class that represents room.
+ */
 public class BoilerRoom extends Location {
 
 

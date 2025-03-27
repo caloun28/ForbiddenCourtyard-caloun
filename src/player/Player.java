@@ -8,6 +8,9 @@ import world.Location;
 
 import java.util.Random;
 
+/**
+ * Class of a player.
+ */
 public class Player {
     private int health;
     private int damage;
@@ -102,7 +105,7 @@ public class Player {
 
     /**
      * Increases damage by the axe damage.
-     * @param axe
+     * @param axe 'axe' is a parameter for object axe
      */
     public void increaseDamage(Axe axe){
         this.damage += axe.getPlusDamage();
@@ -110,7 +113,7 @@ public class Player {
 
     /**
      * It counts single attack with random value and damage that npc has.
-     * @param npc
+     * @param npc 'npc' is a instance of a npc
      */
     public void attack(Npc npc) {
         int realDamage = damage+ rand.nextInt(7);
@@ -119,8 +122,8 @@ public class Player {
 
     /**
      * It increases players endurance using the efficiency of the bottle.
-     * @param npc
-     * @param bottle
+     * @param npc Param 'npc' is an instance of a npc
+     * @param bottle Param 'bottle' is an instance of a bottle
      */
     public void increaseEndurance(Npc npc, Bottle bottle) {
         if(!bottle.isUsed()) {

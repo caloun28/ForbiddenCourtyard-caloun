@@ -7,6 +7,9 @@ import world.Location;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * Class for an npc.
+ */
 public class Npc {
     private TypeOfNpc typeOfNpc;
     private String name;
@@ -70,7 +73,7 @@ public class Npc {
 
     /**
      * It counts single attack with random value and damage that npc has.
-     * @param player
+     * @param player Param 'player' is a instant of a player.
      */
     public void attack(Player player) {
         int realDamage = damage+ rand.nextInt(7);

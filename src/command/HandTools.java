@@ -7,6 +7,9 @@ import entity.items.Item;
 import player.Player;
 import world.Location;
 
+/**
+ * Class for handing tools to the npc.
+ */
 public class HandTools implements Command {
     private Console console;
 
@@ -18,7 +21,7 @@ public class HandTools implements Command {
      * With this method player can hand tools and axe to a workshop foreman
      * and with the tools he will repair the axe and hand it to you after.
      * But it will happen only if player has both items.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

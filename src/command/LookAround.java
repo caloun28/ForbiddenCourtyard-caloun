@@ -5,6 +5,9 @@ import entity.items.Item;
 import player.Player;
 import world.Location;
 
+/**
+ * This class has method for looking around the room.
+ */
 public class LookAround implements Command {
     private Console console;
 
@@ -14,7 +17,7 @@ public class LookAround implements Command {
 
     /**
      * When player uses this command it will write information about the room where the player is.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

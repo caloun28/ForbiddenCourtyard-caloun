@@ -8,6 +8,9 @@ import world.Location;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Class for dropping item.
+ */
 public class Drop implements Command {
     private Console console;
     private Scanner sc = new Scanner(System.in);
@@ -18,7 +21,7 @@ public class Drop implements Command {
 
     /**
      * Thanks to this method player can drop item that he has in his inventory.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

@@ -11,6 +11,9 @@ import world.Map;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * This class is for unlocking rooms.
+ */
 public class Unlock implements Command {
     private Console console;
     private Scanner sc = new Scanner(System.in);
@@ -24,7 +27,7 @@ public class Unlock implements Command {
     /**
      * With this method, player can choose to unlock a locked door. He can unlock it, only if he has an assigned key
      * and access to the room.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

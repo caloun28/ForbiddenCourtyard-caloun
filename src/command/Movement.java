@@ -7,11 +7,15 @@ import player.Player;
 import world.Location;
 import world.Map;
 
+/**
+ * This class is made to control moving between locations.
+ */
 public class Movement implements Command {
     private Scanner scanner = new Scanner(System.in);
     private Map map;
     private Location currentLocation;
     private Player player;
+
 
     public Movement(Console console) {
         this.player = console.getPlayer();
@@ -20,7 +24,7 @@ public class Movement implements Command {
 
     /**
      * This method moves player only if the input equals the available location.
-     * @return
+     * @return It returns an output for the given situation.
      */
     public String execute() {
 
@@ -45,30 +49,27 @@ public class Movement implements Command {
 
     /**
      * This method searches between available locations and moves player.
-     * @param name
+     * @param name Param 'name' is a parameter for location name.
      * @return
      */
     public String moveTo(String name) {
-        map.initialize();
-        currentLocation = map.getLocations().getFirst();
-
         if (currentLocation.getName().equalsIgnoreCase(name)) {
             return "Jsi v teto mistnosti!";
         } else {
             for(String location : currentLocation.getAvailableLocations()) {
                 if (location.equalsIgnoreCase(name)) {
                     for(Location loc : map.getLocations()) {
-                            if (loc.getName().equalsIgnoreCase(name)) {
-                                    if(!loc.isClosed()){
-                                        player.moveTo(loc);
-                                        currentLocation = loc;
-                                        return "Posunul jsi se do: " + currentLocation;
+                        if (loc.getName().equalsIgnoreCase(name)) {
+                            if(!loc.isClosed()){
+                                player.moveTo(loc);
+                                currentLocation = loc;
+                                return "Posunul jsi se do: " + currentLocation;
 
-                                    }else{
-                                        return "Tato mistnost je zamcena";
-                                    }
-
+                            }else{
+                                return "Tato mistnost je zamcena";
                             }
+
+                        }
                     }
                 }
             }

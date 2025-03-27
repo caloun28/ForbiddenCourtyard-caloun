@@ -6,6 +6,9 @@ import player.Player;
 
 import java.util.HashMap;
 
+/**
+ * Parent class that makes locations.
+ */
 public abstract class Location {
     private String name;
     private String label;

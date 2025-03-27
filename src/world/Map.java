@@ -172,9 +172,9 @@ public class Map {
     }
 
     /**
-     * Returns available locations for each room.
-     * @param name
-     * @return
+     * Returns the location
+     * @param name 'name' is an instance of a location name
+     * @return Returns
      */
     public Location getLocationByName(String name) {
         for (Location location : locations) {

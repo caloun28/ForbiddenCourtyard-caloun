@@ -1,5 +1,8 @@
 package entity.items;
 
+/**
+ * This class is a parent class for all items in the game.
+ */
 public abstract class Item {
     private String name;
 

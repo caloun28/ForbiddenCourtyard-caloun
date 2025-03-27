@@ -1,5 +1,8 @@
 package entity.items;
 
+/**
+ * This class makes bottle as an item
+ */
 public class Bottle extends Item {
     private boolean used;
     private int quality;

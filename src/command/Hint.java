@@ -4,6 +4,9 @@ import command.console.Console;
 import player.Player;
 import world.Location;
 
+/**
+ * This class manages hints for all locations.
+ */
 public class Hint implements Command {
     private Console console;
 
@@ -13,7 +16,7 @@ public class Hint implements Command {
 
     /**
      * This method writes a hint for each room.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

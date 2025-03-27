@@ -19,7 +19,7 @@ public class Talk implements Command {
 
     /**
      * If player chose to talk, it will return him a message based on type of the npc.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

@@ -1,3 +1,4 @@
+
 import command.Attack;
 import command.console.Console;
 import entity.Npc;

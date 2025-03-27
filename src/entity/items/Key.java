@@ -1,5 +1,8 @@
 package entity.items;
 
+/**
+ * This class is an inherited class from item.
+ */
 public class Key extends Item {
     private TypeOfKey keyType;
     private boolean used;

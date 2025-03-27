@@ -2,10 +2,13 @@ package command;
 
 import java.io.*;
 
+/**
+ * Class that writes out all commands that player can use.
+ */
 public class Help implements Command {
     /**
      * It will show every command that player can use.
-     * @return
+     * @return It returns an output for the given situation.
      */
     @Override
     public String execute() {

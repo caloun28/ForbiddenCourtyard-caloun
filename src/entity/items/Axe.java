@@ -1,5 +1,8 @@
 package entity.items;
 
+/**
+ * This class makes axe as an item.
+ */
 public class Axe extends Item{
     private int plusDamage;
 
@@ -14,7 +17,7 @@ public class Axe extends Item{
 
     /**
      * It prevents the axe from having damage below 0
-     * @param plusDamage
+     * @param plusDamage Param 'plusDamage' is a parameter for property plusDamage of the axe.
      */
     public void setPlusDamage(int plusDamage) {
         if (plusDamage>0) {

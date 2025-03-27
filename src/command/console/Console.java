@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+/**
+ * Console is a class for initializing and running the game.
+ */
 public class Console {
     private boolean exit = false;
     private HashMap<String, Command> map = new HashMap();

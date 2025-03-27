@@ -1,5 +1,8 @@
 package entity.items;
 
+/**
+ * This class is inherited class from item.
+ */
 public class Medkit extends Item {
     private boolean used;
     private int plusHealth;
