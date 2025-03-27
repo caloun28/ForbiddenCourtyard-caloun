@@ -1,8 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
 import entity.TypeOfNpc;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Before;
 import player.Player;
 import entity.Npc;
 import entity.items.Axe;
@@ -11,16 +10,17 @@ import world.BoilerRoom;
 import world.Location;
 import command.console.Console;
 import world.Workshop;
+import org.junit.Test;
 
-class HandTools {
+public class HandTools {
     private Console console;
     private Player player;
     private Location dilna;
     private Npc mistr;
     private command.HandTools handTools;
 
-    @BeforeEach
-    void setUp() {
+    @Before
+    public void setUp() {
         console = new Console();
         player = console.getPlayer();
         dilna = new Workshop("dilna", new String[]{}, false, "workshop");
@@ -29,7 +29,7 @@ class HandTools {
     }
 
     @Test
-    void testNotInDilna() {
+    public void testNotInDilna() {
         Location boilerRoom = new BoilerRoom("kotelna", new String[]{}, false, "boiler room");
         player.setCurrentLocation(boilerRoom);
 
@@ -38,7 +38,7 @@ class HandTools {
     }
 
     @Test
-    void testMistrNotPresent() {
+    public void testMistrNotPresent() {
         player.setCurrentLocation(dilna);
 
         String result = handTools.execute();
@@ -46,7 +46,7 @@ class HandTools {
     }
 
     @Test
-    void testNoTools() {
+    public void testNoTools() {
         dilna.setNpc(mistr);
         player.setCurrentLocation(dilna);
 
@@ -55,7 +55,7 @@ class HandTools {
     }
 
     @Test
-    void testSuccessfulTrade() {
+    public void testSuccessfulTrade() {
         dilna.setNpc(mistr);
         player.setCurrentLocation(dilna);
 

@@ -3,8 +3,9 @@ import entity.TypeOfNpc;
 import entity.items.Axe;
 import entity.items.Bottle;
 import entity.items.Medkit;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Before;
+import org.junit.Test;
 import player.Player;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -17,7 +18,7 @@ public class PlayerTest {
     private Medkit medkit;
     private Bottle bottle;
 
-    @BeforeEach
+    @Before
     public void setUp() {
         player = new Player(100, 10, true);
         npc = new Npc(TypeOfNpc.AGGRESSIVE,"Test NPC", 100, 20, true);

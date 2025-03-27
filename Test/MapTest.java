@@ -1,7 +1,8 @@
 import entity.Npc;
 import entity.items.Item;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+
+import org.junit.Before;
+import org.junit.Test;
 import world.Location;
 import world.Map;
 
@@ -10,8 +11,10 @@ import java.util.HashSet;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MapTest {
+
     private Map map;
-    @BeforeEach
+
+    @Before
     public void setUp() {
         map = new Map();
         map.initialize();
