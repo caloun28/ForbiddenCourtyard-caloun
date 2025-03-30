@@ -100,7 +100,9 @@ public class Npc {
         return items;
     }
 
-
+    public String stats(){
+        return health + "HP, " + damage + " utok";
+    }
 
     @Override
     public String toString() {

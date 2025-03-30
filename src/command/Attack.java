@@ -40,6 +40,7 @@ public class Attack implements Command {
 
         StringBuilder text = new StringBuilder();
         text.append("Zacina souboj s ").append(npc.getName()).append("\n");
+        text.append("Toto jsou staty tveho enemy: ").append(npc.stats()).append("\n");
 
         while (npc.isAlive() && player.isAlive()) {
             player.attack(npc);
@@ -54,11 +55,11 @@ public class Attack implements Command {
                 }
                 text.append(npc.getName()).append(" BYL/A PORAZEN/A!\n");
                 if (!npc.getItems().isEmpty()) {
-                    text.append("Z " + npc.getName() + " vypadly tyto predmety:");
+                    text.append("Z ").append(npc.getName()).append(" vypadly tyto predmety:");
 
                     for (Item item : npc.getItems()) {
                         currentLocation.addItem(item);
-                        text.append("- " + item.getName()+"\n");
+                        text.append("- ").append(item.getName()).append("\n");
                     }
 
                     npc.getItems().clear();
