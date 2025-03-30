@@ -17,6 +17,7 @@ public class Console {
     private Scanner scanner = new Scanner(System.in);
     private Player player = new Player(100,20,true);
     private Map gameMap;
+    private Story story = new Story();
 
     public Player getPlayer() {
         return player;
@@ -37,7 +38,7 @@ public class Console {
     public Console() {
         gameMap = new Map();
         gameMap.initialize();
-
+        story.printStory();
         Location startingLocation = gameMap.getLocations().getFirst();
 
         if (startingLocation != null) {
