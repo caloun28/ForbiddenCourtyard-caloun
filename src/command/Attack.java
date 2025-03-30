@@ -14,6 +14,7 @@ public class Attack implements Command {
     public Attack(Console console) {
         this.console = console;
     }
+
     /**
      * This method is for dual attack between player and given npc to the room. If the player wins the duel
      * an item will be dropped from the npc and player will be healed to max health. IF the defeated npc is
@@ -38,22 +39,22 @@ public class Attack implements Command {
         }
 
         StringBuilder text = new StringBuilder();
-        text.append("Začíná souboj s ").append(npc.getName()).append("\n");
+        text.append("Zacina souboj s ").append(npc.getName()).append("\n");
 
         while (npc.isAlive() && player.isAlive()) {
             player.attack(npc);
-            text.append("Zasáhl jsi ").append(npc.getName()).append(" a má ").append(npc.getHealth()).append(" životů.\n");
+            text.append("Zasahl jsi ").append(npc.getName()).append(" a ma ").append(npc.getHealth()).append(" zivotu.\n");
 
             if (!npc.isAlive()) {
 
                 if (npc.getName().equalsIgnoreCase("Nemrtvy reditel")) {
-                    text.append("\nPORAZIL JSI NEMRTVEHO REDITELE. HRA KONCI\n");
+                    text.append("\nPORAZIL JSI NEMRTVEHO REDITELE. DIKY TOMU JSI OSVOBODIL STUDENTA, PROFESORA A MISTRA. VSICHNI JSTE UTEKLI PRYC🎊🎉✨ \n");
                     console.setExit(true);
                     return text.toString();
                 }
-                text.append(npc.getName()).append(" BYL/A PORAŽEN/A!\n");
+                text.append(npc.getName()).append(" BYL/A PORAZEN/A!\n");
                 if (!npc.getItems().isEmpty()) {
-                    text.append("Z " + npc.getName() + " vypadly tyto předměty:");
+                    text.append("Z " + npc.getName() + " vypadly tyto predmety:");
 
                     for (Item item : npc.getItems()) {
                         currentLocation.addItem(item);
@@ -68,7 +69,7 @@ public class Attack implements Command {
             }
 
             npc.attack(player);
-            text.append(npc.getName()).append(" tě zasáhl. Zbývá ti ").append(player.getHealth()).append(" životů.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── \n");
+            text.append(npc.getName()).append(" te zasahl. Zbyvá ti ").append(player.getHealth()).append(" zivotu.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── \n");
 
             if (!player.isAlive()) {
                     text.append("ZEMREL JSI!");

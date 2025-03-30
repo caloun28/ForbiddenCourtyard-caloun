@@ -67,9 +67,9 @@ public class AttackTest {
 
         String result = attack.execute();
 
-        assertTrue(result.contains("Začíná souboj s " + npc.getName()));
-        assertTrue(result.contains(npc.getName() + " BYL/A PORAŽEN/A!"));
-        assertTrue(result.contains("Z " + npc.getName() +" vypadly tyto předměty:"));
+        assertTrue(result.contains("Zacina souboj s " + npc.getName()));
+        assertTrue(result.contains(npc.getName() + " BYL/A PORAZEN/A!"));
+        assertTrue(result.contains("Z " + npc.getName() +" vypadly tyto predmety:"));
         assertTrue(result.contains("- klic od kabinetu"));
         assertTrue(result.contains("Obnovili se ti zivoty na max"));
 
@@ -87,7 +87,7 @@ public class AttackTest {
 
         String result = attack.execute();
 
-        assertTrue(result.contains("Začíná souboj s "+ npc.getName()));
+        assertTrue(result.contains("Zacina souboj s "+ npc.getName()));
         assertTrue(result.contains("ZEMREL JSI!"));
 
         assertFalse(player.isAlive());
@@ -107,8 +107,8 @@ public class AttackTest {
 
         String result = attack.execute();
 
-        assertTrue(result.contains("Začíná souboj s "+ npc.getName()));
-        assertTrue(result.contains("PORAZIL JSI NEMRTVEHO REDITELE. HRA KONCI"));
+        assertTrue(result.contains("Zacina souboj s "+ npc.getName()));
+        assertTrue(result.contains("PORAZIL JSI NEMRTVEHO REDITELE. DIKY TOMU JSI OSVOBODIL STUDENTA, PROFESORA A MISTRA. VSICHNI JSTE UTEKLI PRYC🎊🎉✨   "));
 
         assertFalse(npc.isAlive());
 
