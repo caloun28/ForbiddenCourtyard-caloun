@@ -27,16 +27,15 @@ public class HandTools implements Command {
     public String execute() {
         Player player = console.getPlayer();
         Location currentLocation = player.getCurrentLocation();
+        Npc npc = currentLocation.getNpc();
 
         if (!currentLocation.getName().equalsIgnoreCase("dilna")) {
             return "Nejsi v dilne.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
 
-        Npc npc = currentLocation.getNpc();
         if (npc == null || !npc.getName().equalsIgnoreCase("mistr") || !npc.isAlive()) {
             return "Mistr neni v teto mistnosti.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }
-
 
         if (!player.getInventory().getItems().containsKey("Kladivo") && !player.getInventory().getItems().containsKey("Zachrana sekera")) {
             return "Nemas kladivo ani sekeru.";
@@ -51,6 +50,7 @@ public class HandTools implements Command {
 
             axe.setPlusDamage(axe.getPlusDamage() + 20);
             player.increaseDamage(axe);
+
             if (player.getInventory().addItem(axe)) {
                 npc.removeItem(axe);
                 return "Predal jsi mistrovi naradi a sekeru, kterou ti opravil a vratil zpatky.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";

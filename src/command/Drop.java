@@ -28,6 +28,7 @@ public class Drop implements Command {
 
         Player player = console.getPlayer();
         Location currentLocation = player.getCurrentLocation();
+
         try {
             if(player.getInventory().getItems().isEmpty()) {
                 return "Nemas nic v inventari\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";

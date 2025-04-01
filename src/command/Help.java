@@ -13,6 +13,7 @@ public class Help implements Command {
     @Override
     public String execute() {
         StringBuilder text = new StringBuilder();
+
         try (BufferedReader br = new BufferedReader(new FileReader("commands.csv"))) {
             String line;
             while ((line = br.readLine()) != null) {

@@ -73,7 +73,7 @@ public class Npc {
 
     /**
      * It counts single attack with random value and damage that npc has.
-     * @param player Param 'player' is a instant of a player.
+     * @param player Param 'player' is an instant of a player.
      */
     public void attack(Player player) {
         int realDamage = damage+ rand.nextInt(7);

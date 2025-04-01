@@ -36,6 +36,7 @@ public class Console {
     }
 
     public Console() {
+
         gameMap = new Map();
         gameMap.initialize();
         story.printStory();
@@ -67,10 +68,12 @@ public class Console {
     private void doComm() {
 
         String command = scanner.nextLine().trim().toLowerCase();
+
         if (map.containsKey(command)) {
             System.out.println("─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ");
             String result = map.get(command).execute();
             System.out.println(result);
+
             if (!exit) {
                 exit = map.get(command).exit();
             }
@@ -81,6 +84,7 @@ public class Console {
 
     public void start() {
         inicialization();
+
         try {
             do {
                 System.out.print("ZADEJ COMMAND\n>> ");

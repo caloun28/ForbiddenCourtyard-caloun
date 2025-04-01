@@ -28,6 +28,7 @@ public class LookAround implements Command {
         text.append("Jsi v: ").append(currentLocation.getName()).append("\n");
 
         if (currentLocation.getNpc() != null) {
+
             if(currentLocation.getNpc().isAlive()) {
                 text.append("V mistnosti je : ").append(currentLocation.getNpc().getName()).append("\n");
             }else {

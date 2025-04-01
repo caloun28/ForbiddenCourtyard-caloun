@@ -23,6 +23,7 @@ public class Talk implements Command {
      */
     @Override
     public String execute() {
+
         Player player = console.getPlayer();
         Location currentLocation = player.getCurrentLocation();
         Npc npc = currentLocation.getNpc();
@@ -31,16 +32,20 @@ public class Talk implements Command {
             return "Nikdo tu neni\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
         }else {
             TypeOfNpc typeOfNpc = npc.getTypeOfNpc();
+
             switch (typeOfNpc) {
+
                 case AGGRESSIVE:
                     if(npc.isAlive()) {
                         return "Nechci s tebou mluvit, ukaz co v tobe je.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                     }else {
                         return "Tato entita uz je mrtva\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                     }
+
                 case FRIENDLY:
                     if (npc.getName().equalsIgnoreCase("Schovany student")) {
                         Medkit medkit = null;
+
                         for (Item item : npc.getItems()) {
                             if (item instanceof Medkit) {
                                 medkit = (Medkit) item;
@@ -69,12 +74,15 @@ public class Talk implements Command {
                                 "V ucebne 7 neco je, pokud to zabijes, dostanes ode me odmenu.");
 
                         Location classroom7 = console.getGameMap().getLocationByName("Trida7");
+
                         if (classroom7 != null) {
                             Npc mutant = classroom7.getNpc();
+
                             if (mutant != null && mutant.getName().equalsIgnoreCase("Mutantni student") && mutant.isAlive()) {
                                 return "Musis prvne porazit to monstrum.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                             } else {
                                 Bottle bottle = null;
+
                                 for (Item item : npc.getItems()) {
                                     if (item instanceof Bottle) {
                                         bottle = (Bottle) item;
@@ -82,6 +90,7 @@ public class Talk implements Command {
                                     }
                                 }
                                 if (bottle != null) {
+
                                     if (player.getInventory().addItem(bottle)) {
                                         npc.removeItem(bottle);
                                         return "Uz jsi ho zabil?\nTady mas. Kdyz si to das, tak budes vice odolny vuci utokum.\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
@@ -95,14 +104,17 @@ public class Talk implements Command {
                             }
                         }
                     }
+
                     if (npc.getName().equalsIgnoreCase("Mistr")){
                         Tools tools = null;
+
                         for (Item item : npc.getItems()) {
                             if (item instanceof Tools) {
                                 tools = (Tools) item;
                                 break;
                             }
                         }
+
                         if (npc.getItems().contains(tools)) {
                             return "Co po mne jeste chces, sekeru jsem ti uz opravil\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
                         }

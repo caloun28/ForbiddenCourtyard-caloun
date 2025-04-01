@@ -28,8 +28,8 @@ public class Take implements Command {
         Player player = console.getPlayer();
         Location currentLocation = player.getCurrentLocation();
 
-
        try {
+
            if(currentLocation.getItems().isEmpty()){
                return "V teto mistnosti nemuzes nic sebrat\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ──";
            }

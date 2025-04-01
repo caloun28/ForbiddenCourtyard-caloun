@@ -54,6 +54,7 @@ public class Attack implements Command {
                     return text.toString();
                 }
                 text.append(npc.getName()).append(" BYL/A PORAZEN/A!\n");
+
                 if (!npc.getItems().isEmpty()) {
                     text.append("Z ").append(npc.getName()).append(" vypadly tyto predmety:");
 
@@ -64,6 +65,7 @@ public class Attack implements Command {
 
                     npc.getItems().clear();
                 }
+
                 player.healToMax();
                 text.append("Obnovili se ti zivoty na max\n");
                 break;

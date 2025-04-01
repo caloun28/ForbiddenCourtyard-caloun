@@ -20,8 +20,10 @@ public class Hint implements Command {
      */
     @Override
     public String execute() {
+
         Player player = console.getPlayer();
         Location currentLocation = player.getCurrentLocation();
+
         switch (currentLocation.getName()){
             case "Chodba":
                 return currentLocation.getLabel() + "\n─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ─── ⋆⋅☆⋅⋆ ── ";

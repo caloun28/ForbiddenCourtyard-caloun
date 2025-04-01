@@ -31,10 +31,10 @@ public class Unlock implements Command {
      */
     @Override
     public String execute() {
+
         Player player = console.getPlayer();
         Location currentLocation = player.getCurrentLocation();
         try {
-
 
             System.out.print("Zadej název místnosti, kterou chceš odemknout\n>> ");
             String input = sc.nextLine().trim().toLowerCase();

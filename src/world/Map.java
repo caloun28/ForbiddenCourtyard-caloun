@@ -29,8 +29,11 @@ public class Map {
      */
     public void loadNpc() {
         String line;
+
         try (BufferedReader br = new BufferedReader(new FileReader("npc.csv"))) {
+
             while ((line = br.readLine()) != null) {
+
                 String[] lines = line.split("/");
                 TypeOfNpc type = TypeOfNpc.valueOf(lines[0]);
                 String name = lines[1];
@@ -58,7 +61,9 @@ public class Map {
      */
     public void loadItems() {
         String line;
+
         try (BufferedReader br = new BufferedReader(new FileReader("items.csv"))) {
+
             while ((line = br.readLine()) != null) {
                 String[] lines = line.split("/");
                 String itemType = lines[0];
@@ -94,6 +99,7 @@ public class Map {
 
                 if (item != null) {
                     boolean itemAssigned = false;
+
                     for (Location location : locations) {
                         Npc npc = location.getNpc();
                         if (npc != null && npc.getName().equals(npcName)) {
@@ -118,7 +124,9 @@ public class Map {
      */
     public void loadingMap() {
         String line;
+
         try (BufferedReader br = new BufferedReader(new FileReader("map.csv"))) {
+
             while((line = br.readLine()) != null) {
                 String[] lines = line.split("/");
 

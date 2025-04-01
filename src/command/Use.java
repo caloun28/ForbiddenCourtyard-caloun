@@ -55,6 +55,7 @@ public class Use implements Command {
                         }
 
                     case "zajimava lahvicka":
+
                         if (player.getInventory().getItems().containsKey("Zajimava lahvicka")) {
                             Bottle bottle = (Bottle) player.getInventory().getItems().get("Zajimava lahvicka");
 
