@@ -38,7 +38,7 @@ public class HandTools implements Command {
         }
 
         if (!player.getInventory().getItems().containsKey("Kladivo") && !player.getInventory().getItems().containsKey("Zachrana sekera")) {
-            return "Nemas kladivo ani sekeru.";
+            return "Nemas kladivo nebo sekeru.";
         }else{
             Item tool = player.getInventory().getItems().get("Kladivo");
             Axe axe = (Axe) player.getInventory().getItems().get("Zachrana sekera");

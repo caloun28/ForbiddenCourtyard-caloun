@@ -50,6 +50,9 @@ public class Console {
         }
     }
 
+    /**
+     * It initializes all commands.
+     */
     public void inicialization() {
         map.put("jdi", new Movement(this));
         map.put("konec", new Exit());
